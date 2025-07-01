@@ -1,0 +1,238 @@
+@import '@xyflow/react/dist/style.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base height and font */
+html, body, #root {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+}
+
+/* ========== Top Bar ========== */
+/* Top navigation bar with Save Changes button */
+.topbar {
+  display: flex;
+  justify-content: flex-start; /* Save Changes aligned to left */
+  align-items: center;
+  padding: 12px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  height: 50px;
+}
+
+/* Styling for Save Changes button */
+.save-btn {
+  border: 1px solid #3b82f6;
+  background: white;
+  color: #3b82f6;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Hover effect for Save button */
+.save-btn:hover {
+  background-color: #eff6ff;
+}
+
+/* ========== Layout ========== */
+/* Flex layout container for left, center, and right sections */
+.app-container {
+  display: flex;
+  height: calc(100vh - 50px); /* subtract topbar height */
+}
+
+/* Left Sidebar (Node Panel) */
+.left-sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 10;
+}
+
+/* Right Sidebar (Settings Panel) */
+.right-sidebar {
+  width: 320px;
+  background-color: #fff;
+  border-left: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+/* Center Flow Canvas */
+.flow-canvas {
+  flex: 1;
+  height: 100%;
+  background-color: #f9fafb;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Node Styling ========== */
+/* Style for a custom text node */
+.text-node {
+  background-color: #e7fdf4;
+  padding: 16px;
+  border: 1px solid #a0f0c2;
+  border-radius: 12px;
+  min-width: 220px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Node header container */
+.node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Left icon style in node header */
+.left-icon {
+  color: #2563eb;
+  margin-right: 8px;
+}
+
+/* Right icon style in node header */
+.right-icon {
+  color: #25D366;
+  margin-left: 8px;
+}
+
+/* Title of the node */
+.node-title {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  color: #075e54;
+  font-size: 14px;
+}
+
+/* Content/body section of the node */
+.node-body {
+  background-color: #ffffff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  color: #333;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
+}
+
+/* React Flow handles */
+.react-flow__handle {
+  background-color: #4b5563;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* ========== Settings Panel ========== */
+/* Wrapper for node settings panel */
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header area in settings panel */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Back navigation icon in settings panel */
+.back-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Label for settings field */
+.settings-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Textarea for node content editing */
+.settings-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+/* ========== Node Panel Styles ========== */
+/* Container for draggable node items */
+.node-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual draggable node item */
+.node-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  padding: 20px 16px;
+  background-color: #fff;
+  cursor: grab;
+  color: #1e3a8a;
+  transition: background-color 0.2s;
+  font-weight: 500;
+  min-height: 100px;
+  text-align: center;
+}
+
+/* Hover effect for draggable node item */
+.node-item:hover {
+  background-color: #f0f9ff;
+}
+
+/* Icon inside node item */
+.node-icon {
+  font-size: 24px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* Label text under node item */
+.node-label {
+  font-size: 14px;
+}
